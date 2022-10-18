@@ -1,9 +1,9 @@
 <template>
     <header class="header">
         <div class="container">
-                <div class="header__wrapper">
+            <div class="header__wrapper">
                 <div class="header__branding">
-                    <router-link class="header__branding-link" :to="{ name: 'home' }">FireBlogs</router-link>
+                    <BrandingIcon/>
                 </div>
                 <NavigationItem
                     :mobileNav="mobileNav" 
@@ -18,15 +18,18 @@
 import { onMounted, ref } from 'vue';
 import NavigationItem from '../components/NavigationItem.vue';
 import MenuIcon from '../assets/Icons/bars-regular.svg';
+import BrandingIcon from '../components/BrandingIcon.vue';
 
 const mobile = ref(null);
 const mobileNav = ref(null);
 const windowWidth = ref(null);
 
+const mobileWindowBreakPoint = 575;
+
 const checkScreen = () => {
     windowWidth.value = window.innerWidth;
 
-    if (windowWidth.value <= 575) {
+    if (windowWidth.value <= mobileWindowBreakPoint) {
         mobile.value = true;
         return;
     }
@@ -43,62 +46,18 @@ onMounted(() => {
 const toggleMobileNav = () => {
     mobileNav.value = !mobileNav.value;
 }
+
 </script>
 
-<!-- <script>
-import NavigationItem from '../components/NavigationItem.vue';
-import MenuIcon from '../assets/Icons/bars-regular.svg';
-
-export default {
-    name: 'header-item',
-
-    components: {
-        MenuIcon,
-        NavigationItem
-    },
-
-    data() {
-        return {
-            mobile: null,
-            mobileNav: null,
-            windowWidth: null
-        }
-    },
-
-    methods: {
-        checkScreen() {
-            this.windowWidth = window.innerWidth;
-
-            if (this.windowWidth <= 575) {
-                this.mobile = true;
-                return;
-            }
-
-            this.mobile = false;
-            this.mobileNav = false;
-        },
-
-        toggleMobileNav() {
-            this.mobileNav = !this.mobileNav;
-        }
-    },
-
-    created() {
-        window.addEventListener('resize', this.checkScreen);
-        this.checkScreen();
-    }
-}
-</script> -->
-
-<style lang="scss" scoped>
+<style scoped lang="scss">
 .header {
     position: relative;
     z-index: 99;
 
-    height: 69px;
+    height: 90px;
     padding: 0 1.562rem;
 
-    background-color:#ffffff;
+    background-color: $bg-light-color;
 
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
 
@@ -120,7 +79,7 @@ export default {
     &__branding-link {
         font-weight: 600;
         font-size: 1.5rem;
-        color: #000000;
+        color: $dark-font;
         text-decoration: none;
     }
 

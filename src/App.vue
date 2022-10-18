@@ -1,22 +1,22 @@
 <template>
-  <div class="app">
-    <HeaderItem/>
-    <!-- <NavigationTop/> -->
-    <router-view></router-view>
+  <div class="app__wrapper">
+    <div class="app">
+      <HeaderItem/>
+      <router-view></router-view>
+      <FooterItem/>
+    </div>
   </div>
 </template>
 
-<script>
-// import NavigationTop from './components/NavigationTop.vue'
+<script setup>
 import HeaderItem from './components/HeaderItem.vue';
-
-export default {
-  components: {
-    HeaderItem,
-    // NavigationTop
-  }
-}
+import FooterItem from './components/FooterItem.vue';
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 </style>

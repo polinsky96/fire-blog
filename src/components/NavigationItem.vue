@@ -66,60 +66,6 @@ const links = reactive([
 ]);
 </script>
 
-<!-- <script>
-export default {
-    props: {
-        mobile: {
-            type: Boolean,
-            default: null,
-            require: true
-        },
-        mobileNav: {
-            type: Boolean,
-            default: null,
-            require: true 
-        }
-    },
-
-    data() {
-        return {
-            links: [
-                {
-                    name: 'Home',
-                    path: '#'
-                },
-                {
-                    name: 'Blogs',
-                    path: '#'
-                },
-                {
-                    name: 'Create Post',
-                    path: '#'
-                },
-                {
-                    name: 'Login/Register',
-                    path: '#'
-                }
-            ]
-        }
-    },
-
-    computed: {
-        mobileActive() {
-            if (this.mobile) {
-                if (this.mobileNav) {
-                    return true;
-                }
-                
-                return false;
-            }
-
-            return true;
-        }
-    }
-}
-</script> -->
-
 <style lang="scss" scoped>
 .navigation {
     min-height: 100%;
@@ -160,20 +106,20 @@ export default {
 
         max-width: 250px;
         width: 70%;
-        background-color: #303030;
+        background-color: $bg-accent-color;
     }
 
     &__mobile {
         &-links {
             flex-direction: column;
             align-items: start;
-            padding: 20px;
+            padding: 1.25rem;
         }
 
         &-link {
             margin: 0;
             padding: 1rem 0;
-            color: #ffffff;
+            color: $light-font;
         }
     }
 

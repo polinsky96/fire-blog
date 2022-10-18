@@ -1,3 +1,13 @@
+$device-breakpoints: (
+    "mobile": 576px,
+    "tablet": 768px,
+    "laptop": 992px,
+    "desktop": 1199px,
+    "large": 1400px,
+    "extra-large": 1400px,
+    "pink-color": pink, 
+);
+
 @mixin for-mobile-devices {
     @media (max-width: 575px) { @content; }
 }
@@ -16,3 +26,8 @@
 @mixin for-extra-large($min: 1400px) {
     @media (min-width: $min) { @content; }
 }
+
+$theme-colors: (
+  'someColor': #000,
+  'anotherColor': #FFF,
+);

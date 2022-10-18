@@ -1,5 +1,6 @@
 @mixin link-config {
-    color: #000000;
+    color: $dark-font;
+    font-weight: 500;
     text-decoration: none;
     text-transform: uppercase;
     cursor: pointer;
