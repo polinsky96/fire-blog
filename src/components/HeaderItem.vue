@@ -14,7 +14,38 @@
     </header>
 </template>
 
-<script>
+<script setup>
+import { onMounted, ref } from 'vue';
+import NavigationItem from '../components/NavigationItem.vue';
+import MenuIcon from '../assets/Icons/bars-regular.svg';
+
+const mobile = ref(null);
+const mobileNav = ref(null);
+const windowWidth = ref(null);
+
+const checkScreen = () => {
+    windowWidth.value = window.innerWidth;
+
+    if (windowWidth.value <= 575) {
+        mobile.value = true;
+        return;
+    }
+
+    mobile.value = false;
+    mobileNav.value = false;
+}
+
+onMounted(() => {
+    window.addEventListener('resize', checkScreen);
+    checkScreen();
+})
+
+const toggleMobileNav = () => {
+    mobileNav.value = !mobileNav.value;
+}
+</script>
+
+<!-- <script>
 import NavigationItem from '../components/NavigationItem.vue';
 import MenuIcon from '../assets/Icons/bars-regular.svg';
 
@@ -57,7 +88,7 @@ export default {
         this.checkScreen();
     }
 }
-</script>
+</script> -->
 
 <style lang="scss" scoped>
 .header {

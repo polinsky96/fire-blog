@@ -17,7 +17,56 @@
     </transition> 
 </template>
 
-<script>
+<script setup>
+import { reactive, computed } from 'vue';
+
+const props = defineProps({
+    mobile: {
+        type: Boolean,
+        default: null,
+        require: true
+    },
+    mobileNav: {
+        type: Boolean,
+        default: null,
+        require: true 
+    }
+});
+
+const mobileActive = computed(() => {
+    if (props.mobile) {
+        if (props.mobileNav) {
+            return true;
+        }
+        
+        return false;
+    }
+
+    return true;
+})
+
+//render links list
+const links = reactive([
+    {
+        name: 'Home',
+        path: '#'
+    },
+    {
+        name: 'Blogs',
+        path: '#'
+    },
+    {
+        name: 'Create Post',
+        path: '#'
+    },
+    {
+        name: 'Login/Register',
+        path: '#'
+    }
+]);
+</script>
+
+<!-- <script>
 export default {
     props: {
         mobile: {
@@ -69,7 +118,7 @@ export default {
         }
     }
 }
-</script>
+</script> -->
 
 <style lang="scss" scoped>
 .navigation {
