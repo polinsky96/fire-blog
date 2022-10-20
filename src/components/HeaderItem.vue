@@ -59,7 +59,7 @@ const toggleMobileNav = () => {
 
     background-color: $bg-light-color;
 
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
+    @include main-box-shadow;
 
     &__wrapper {
         display: flex;
